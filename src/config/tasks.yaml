@@ -1,0 +1,8 @@
+support_task:
+  description: >
+    Responda às perguntas do cliente sobre o sistema.
+    Você deve fornecer respostas claras e úteis.
+  expected_output: >
+    Uma resposta clara e objetiva para a pergunta do cliente.
+  async_execution: true
+  agent: support_agent
