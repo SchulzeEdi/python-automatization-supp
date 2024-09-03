@@ -1,7 +1,7 @@
 from crewai import Agent, Task, Crew, Process
-from tools import PDFVectorStoreTool
+from src import build_chat
 
-pdf_tool = PDFVectorStoreTool(pdf_path='src/pdf/contrato.pdf')
+pdf_tool = build_chat()
 
 support_agent = Agent(
     role='Agente de Suporte',

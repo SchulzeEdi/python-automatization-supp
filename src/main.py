@@ -1,8 +1,7 @@
 # src/main.py
-
 import os
 from dotenv import load_dotenv
-from crew import crew  # Importa a configuração da crew
+from crew import crew
 
 load_dotenv()
 
