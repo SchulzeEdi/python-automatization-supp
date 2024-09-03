@@ -1,24 +1,16 @@
 from pydantic import BaseModel
-from langchain.schema import BaseChatMessageHistory
+from langchain.schema import BaseChatMessageHistory, BaseMessage
 
-from app.web.api import (
-    get_messages_by_conversation_id,
-    add_message_to_conversation
-)
-
-class SqlMessageHistory(BaseChatMessageHistory, BaseModel):
+class InMemoryMessageHistory(BaseChatMessageHistory, BaseModel):
     conversation_id: str
+    _messages: list[BaseMessage] = []
 
     @property
     def messages(self):
-        return get_messages_by_conversation_id(self.conversation_id)
+        return self._messages
     
-    def add_message(self, message):
-        return add_message_to_conversation(
-            conversation_id=self.conversation_id,
-            role=message.type,
-            content=message.content
-        )
+    def add_message(self, message: BaseMessage):
+        self._messages.append(message)
 
     def clear(self):
-        pass
+        self._messages.clear()

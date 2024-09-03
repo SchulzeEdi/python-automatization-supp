@@ -1,5 +1,5 @@
 from crewai import Agent, Task, Crew, Process
-from src import build_chat
+from chat.chat import build_chat
 
 pdf_tool = build_chat()
 
@@ -16,7 +16,6 @@ support_task = Task(
     agent=support_agent,
 )
 
-# Configuração da crew
 crew = Crew(
     agents=[support_agent],
     tasks=[support_task],

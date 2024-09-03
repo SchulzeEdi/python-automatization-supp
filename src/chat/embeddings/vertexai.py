@@ -1,3 +1,4 @@
-from langchain.embeddings import VertexAIEmbeddings
+from langchain_google_vertexai import VertexAIEmbeddings
 
-embeddings = VertexAIEmbeddings()
+embeddings = VertexAIEmbeddings(model_name="textembedding-gecko@001")
+

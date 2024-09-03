@@ -1,10 +1,10 @@
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from vector_stores.pinecone import vector_store
+from chat.vector_stores.pinecone import vector_store
 
 def create_embeddings_for_pdf():
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
+        chunk_size=768,
         chunk_overlap=100
     )
 
